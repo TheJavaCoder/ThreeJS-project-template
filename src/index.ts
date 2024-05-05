@@ -27,19 +27,19 @@ const BuildScene = () => {
     document.getElementById("ThreeJSCanvas").appendChild(Renderer.domElement);
 
 
-
+    Update();
     Render();
 }
 
-const Render = () => {
-    requestAnimationFrame(Render);
+const Update = () => {
+    requestAnimationFrame(Update);
 
     Cube.rotation.x += 0.001;
     Cube.rotation.y += 0.001;
 
     Controls.update();
 
-    Renderer.render(Scene, Camera);
+    Render();
 }
 
 
@@ -49,4 +49,9 @@ const onWindowResize = () => {
     Renderer.setSize(window.innerWidth, window.innerHeight);
     Render();
 }
+
+function Render() {
+    Renderer.render(Scene, Camera);
+}
+
 window.addEventListener('resize', onWindowResize, false);

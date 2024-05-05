@@ -20,14 +20,15 @@ window.onload = function () {
 var BuildScene = function () {
     Renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById("ThreeJSCanvas").appendChild(Renderer.domElement);
+    Update();
     Render();
 };
-var Render = function () {
-    requestAnimationFrame(Render);
+var Update = function () {
+    requestAnimationFrame(Update);
     Cube.rotation.x += 0.001;
     Cube.rotation.y += 0.001;
     Controls.update();
-    Renderer.render(Scene, Camera);
+    Render();
 };
 var onWindowResize = function () {
     Camera.aspect = window.innerWidth / window.innerHeight;
@@ -35,5 +36,8 @@ var onWindowResize = function () {
     Renderer.setSize(window.innerWidth, window.innerHeight);
     Render();
 };
+function Render() {
+    Renderer.render(Scene, Camera);
+}
 window.addEventListener('resize', onWindowResize, false);
 //# sourceMappingURL=index.js.map
