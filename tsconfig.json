@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "outDir": "build/typescript"
+    },
+    "include": ["src/**/*"]
+}
